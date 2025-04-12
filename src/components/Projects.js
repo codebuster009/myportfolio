@@ -23,13 +23,9 @@ export default function Projects () {
             })
   return (
     <div className='project' id='project'>
-      <h2> Projects </h2>
-   
+      <h2> Professional Work + Personal</h2>
        <div className='content' >
         { cards }
-      
-      
-      
       </div> 
      
       

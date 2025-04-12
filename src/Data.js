@@ -1,7 +1,44 @@
 
 export default [
+ 
     {
         id: 0,
+        src:"parties.png",
+        title: "Party2Users(P2U)",
+        tech: "ReactJs , Javascript ,Framer Motion, Tailwind CS5 , Redux , Redis , Server Events , Websockets , Node.js ",
+        live: "https://parties2you.com/",
+        github: "https://github.com/codebuster009/AppleCart"
+
+    },
+    {
+        id: 1,
+        src:"marketing.png",
+        title: "Marketing AI(MAI)",
+        tech: "ReactJs , Javascript,React Query,Tailwind CSS , Node.js",
+        live: "https://www.nextviralai.com/",
+        github: "https://github.com/codebuster009/Food-App"
+
+    },
+    {
+        id: 2,
+        src:"authnull.png",
+        title: "Authnull",
+        tech: "ReactJs , Redux , Ant Design Library",
+        live: "https://authnull.com/",
+        github: "https://github.com/codebuster009/Tenzies-Game"
+
+    },
+    {
+        id: 3,
+        src:"lifetimes.png",
+        title: "Lifetime Memories",
+        tech: "ReactJs , CSS , React Query,HTML5 ",
+        live: "https://golden-bubblegum-70b630.netlify.app/",
+        github: "https://github.com/codebuster009/TaskMate"
+
+    },
+    {
+        id: 5,
         src:"apple.png",
         title: "Apple Cart",
         tech: "ReactJs , Javascript , HTML5 , CSS3 ",
@@ -10,48 +47,12 @@ export default [
 
     },
     {
-        id: 1,
-        src:"food.png",
-        title: "Food App",
-        tech: "ReactJs , Redux , Javascript , HTML5 , CSS3",
-        live: "https://remarkable-seahorse-047661.netlify.app/",
-        github: "https://github.com/codebuster009/Food-App"
-
-    },
-    {
-        id: 2,
-        src:"tenzies.png",
-        title: "Tenzies Game",
-        tech: "ReactJs , HTML5 , CSS3",
-        live: "https://resilient-dusk-b3644d.netlify.app/",
-        github: "https://github.com/codebuster009/Tenzies-Game"
-
-    },
-    {
-        id: 3,
+        id: 6,
         src:"meme.png",
-        title: "Random Meme Generator",
+        title: "Master Memes",
         tech: "ReactJs , HTML5 , CSS3",
         live: "https://dancing-kleicha-cb36b6.netlify.app/",
         github: "https://github.com/codebuster009/Tenzies-Game"
-
-    },
-    {
-        id: 4,
-        src:"task.png",
-        title: "Task Mate",
-        tech: "ReactJs , HTML5 , CSS3",
-        live: "https://golden-bubblegum-70b630.netlify.app/",
-        github: "https://github.com/codebuster009/TaskMate"
-
-    },
-    {
-        id: 5,
-        src:"digit.png",
-        title: "Digit Smith",
-        tech: "ReactJs , HTML5 , CSS3",
-        live: "https://resplendent-baklava-010d62.netlify.app/",
-        github: "https://github.com/codebuster009/Digitsmith"
 
     },
 ]

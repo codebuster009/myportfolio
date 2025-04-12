@@ -47,14 +47,11 @@ function App() {
       </div>
      <div className='hero'>
       <div className='mid'>
-        <div className='heading'> <span className="highlighting">Hello, I'm Kartavya Sharma ,  </span>
-            FrontEnd Developer.
+        <div className='heading'> <span className="highlighting">Hello, I'm Kartavaya Sharma ,  </span>
+            Frontend Fullstack Developer.
         </div>
         <div className='about'>
-          Frontend Developer, seeking to apply
-          competent development skills with collaboration, communication and passion.
-          I look forward to build my skills,
-           Reach me for any Freelance opportunity.
+        I'm a Frontend Developer with hands-on experience delivering fullstack solutions across diverse client projects. I bring strong development skills, a collaborative mindset, and a passion for building efficient, user-friendly applications. Whether it's crafting responsive UIs, working with backend APIs, or deploying scalable systems, I enjoy working across the stack to bring ideas to life. I'm always open to freelance opportunities and excited to keep growing with every challenge—let's connect!
         </div>
         <div >
           <form className='mygithub'><button formAction='https://github.com/codebuster009' formTarget='_blank'> my GitHub</button></form>
