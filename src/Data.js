@@ -20,7 +20,16 @@ export default [
 
     },
     {
-        id: 2,
+        id: 3,
+        src:"vantage.png",
+        title: "Vantage Cybertech",
+        tech: "ReactJs , Framer Motion , Tailwind CSS",
+        live: "https://www.vantagecybertech.com/",
+        github: "https://github.com/codebuster009/Tenzies-Game"
+
+    },
+    {
+        id: 4,
         src:"authnull.png",
         title: "Authnull",
         tech: "ReactJs , Redux , Ant Design Library",
@@ -29,7 +38,7 @@ export default [
 
     },
     {
-        id: 3,
+        id: 5,
         src:"lifetimes.png",
         title: "Lifetime Memories",
         tech: "ReactJs , CSS , React Query,HTML5 ",
@@ -38,7 +47,7 @@ export default [
 
     },
     {
-        id: 5,
+        id: 6,
         src:"apple.png",
         title: "Apple Cart",
         tech: "ReactJs , Javascript , HTML5 , CSS3 ",
@@ -46,13 +55,5 @@ export default [
         github: "https://github.com/codebuster009/AppleCart"
 
     },
-    {
-        id: 6,
-        src:"meme.png",
-        title: "Master Memes",
-        tech: "ReactJs , HTML5 , CSS3",
-        live: "https://dancing-kleicha-cb36b6.netlify.app/",
-        github: "https://github.com/codebuster009/Tenzies-Game"
-
-    },
+ 
 ]
