@@ -1,70 +1,238 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 👋 Hi there, I'm Kartavaya Sharma
 
-## Available Scripts
+### 🚀 Full Stack Developer | UI/UX Enthusiast | Problem Solver
 
-In the project directory, you can run:
+<img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" alt="Coder GIF" width="500" height="300">
 
-### `npm start`
+[![Portfolio](https://img.shields.io/badge/Portfolio-7E74F1?style=for-the-badge&logo=vercel&logoColor=white)](https://kartavyasharma.netlify.app/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kartavaya-sharma-a17035230/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kartavyasharmajs@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/codebuster009)     
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+</div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 👨‍💻 About Me
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```typescript
+const kartavaya = {
+  role: "Full Stack Developer",
+  location: "India",
+  passion: "Building scalable, real-world applications",
+  currentFocus: ["React", "Next.js", "TypeScript", "AI Integration"],
+  motto: "Learn, Build, Share, Repeat.",
+  funFact: "Addicted to making clean UI/UX interfaces that users love ✨"
+}
+```
 
-### `npm run build`
+- 💻 **Full Stack Developer** passionate about building scalable, real-world applications
+- ⚡ Skilled in **React**, **Next.js**, **Node.js**, **TypeScript**, **MongoDB**, **Docker**, and **AWS**
+- 🚀 I bring ideas to life — from scratch to production
+- 🌟 Exploring **Cloud**, **WebSockets**, **Microservices**, and **AI tools**
+- 🎨 Love creating beautiful, responsive, and performant web experiences
+- 🔥 Always learning and implementing the latest technologies
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🛠️ Tech Stack
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Frontend
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
+![shadcn/ui](https://img.shields.io/badge/shadcn/ui-000000?style=for-the-badge&logo=shadcnui&logoColor=white)
+![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-### `npm run eject`
+### Backend
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### DevOps & Tools
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![WebSockets](https://img.shields.io/badge/WebSockets-010101?style=for-the-badge&logo=socket.io&logoColor=white)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📊 GitHub Stats
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<div align="center">
+  
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=codebuster009&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=7E74F1&icon_color=7E74F1)
 
-## Learn More
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=codebuster009&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=7E74F1)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![GitHub Streak](https://github-readme-streak-stats.demolab.com/?user=codebuster009&theme=tokyonight&hide_border=true&background=0D1117&ring=7E74F1&fire=7E74F1&currStreakLabel=7E74F1)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+</div>
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🚀 Featured Projects
 
-### Analyzing the Bundle Size
+### 🎉 Party2Users (P2U)
+> Real-time event discovery and organization platform with live updates and WebSocket integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Tech Stack:** ReactJS, JavaScript, Framer Motion, Tailwind CSS, Redux, Redis, Server Events, WebSockets, Node.js
 
-### Making a Progressive Web App
+- ⚡ Real-time notifications and live chats
+- 🚀 High-speed backend caching with Redis
+- 🔥 WebSocket integration for instant updates
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+[🌐 View on Portfolio](https://kartavyasharma.netlify.app/) | [📁 Repository](https://github.com/codebuster009)
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 🤖 Marketing AI (MAI)
+> AI-powered marketing automation platform with advanced analytics and trend prediction
 
-### Deployment
+**Tech Stack:** ReactJS, JavaScript, React Query, Tailwind CSS, Node.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- 📊 Smart analytics dashboards
+- 🤖 OpenAI API integration
+- 🎯 Personalized campaign automation
 
-### `npm run build` fails to minify
+[🌐 View on Portfolio](https://kartavyasharma.netlify.app/) | [📁 Repository](https://github.com/codebuster009)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+### 🚚 Vantage Cargo
+> Modern logistics and cargo management website with ultra-smooth animations
+
+**Tech Stack:** ReactJS, Framer Motion, Tailwind CSS
+
+- ✨ Micro-interactions and smooth scrolling
+- 📱 Fully responsive design
+- 🔍 SEO optimized
+
+[🌐 View on Portfolio](https://kartavyasharma.netlify.app/) | [📁 Repository](https://github.com/codebuster009)
+
+---
+
+### 🔐 Authnull
+> Enterprise-grade authentication and security platform with beautiful UI
+
+**Tech Stack:** ReactJS, Redux, Ant Design Library
+
+- 🔒 Secure JWT token management
+- 🌐 Social login integration
+- 🏢 Enterprise-ready design
+
+[🌐 View on Portfolio](https://kartavyasharma.netlify.app/) | [📁 Repository](https://github.com/codebuster009)
+
+---
+
+### 📱 Inlyne
+> Modern web application with elegant design and seamless user experience
+
+**Tech Stack:** React Native, ReactJS, TypeScript, Tailwind CSS, Framer Motion, shadcn/ui
+
+- 🎨 Elegant, modern UI design
+- ⚡ Smooth animations and transitions
+- 📱 Cross-platform compatibility
+
+[🌐 View on Portfolio](https://kartavyasharma.netlify.app/) | [📁 Repository](https://github.com/codebuster009)
+
+---
+
+### 🤖 Freighkit AI
+> AI-powered freight management platform with intelligent chatbot integration
+
+**Tech Stack:** ReactJS, TypeScript, Tailwind CSS, shadcn/ui, AI Integration
+
+- 🤖 AI chatbot integration
+- 📊 Advanced analytics dashboard
+- 🚀 Intelligent automation
+
+[🌐 View on Portfolio](https://kartavyasharma.netlify.app/) | [📁 Repository](https://github.com/codebuster009)
+
+---
+
+### 🚗 JAAFAR Car
+> Modern car dealership platform with elegant design and seamless user experience
+
+**Tech Stack:** ReactJS, TypeScript, Tailwind CSS, Framer Motion
+
+- 🎨 Beautiful, modern interface
+- ⚡ Smooth animations
+- 📱 Fully responsive
+
+[🌐 View on Portfolio](https://kartavyasharma.netlify.app/) | [📁 Repository](https://github.com/codebuster009)
+
+---
+
+### 🧠 Custom AI Service
+> Custom AI service platform with advanced integration capabilities
+
+**Tech Stack:** ReactJS, TypeScript, Tailwind CSS, AI/ML
+
+- 🤖 Custom AI integrations
+- 🔧 Flexible API architecture
+- 📈 Scalable solutions
+
+[🌐 View on Portfolio](https://kartavyasharma.netlify.app/) | [📁 Repository](https://github.com/codebuster009)
+
+---
+
+## 💼 Services I Offer
+
+- 🌐 **Custom Website Development** - Modern, responsive websites built with latest technologies
+- 🎨 **UI/UX Design** - Beautiful, user-friendly interfaces that users love
+- ⚡ **Performance Optimization** - Fast, efficient applications
+- 🔧 **Full Stack Solutions** - End-to-end development from frontend to backend
+- 🤖 **AI Integration** - Smart features powered by AI and machine learning
+
+---
+
+## 📈 What I'm Currently Learning
+
+- 🔥 Advanced Next.js 14+ features
+- 🤖 AI/ML integration in web applications
+- ☁️ Cloud architecture and microservices
+- 🎨 Advanced animation techniques with Framer Motion
+- 📱 React Native for mobile development
+
+---
+
+## 🎯 Life Motto
+
+> **"Learn, Build, Share, Repeat."**
+
+---
+
+## 📫 Let's Connect!
+
+<div align="center">
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-7E74F1?style=for-the-badge&logo=vercel&logoColor=white&link=https://kartavyasharma.netlify.app/)](https://kartavyasharma.netlify.app/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/kartavaya-sharma-a17035230/)](https://www.linkedin.com/in/kartavaya-sharma-a17035230/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white&link=mailto:kartavyasharmajs@gmail.com)](mailto:kartavyasharmajs@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/codebuster009)](https://github.com/codebuster009)
+
+</div>
+
+---
+
+<div align="center">
+
+### ⚡ Fun Fact
+> I'm addicted to making clean UI/UX interfaces that users love! ✨
+
+**Thanks for visiting!** 👋
+
+![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=codebuster009.codebuster009)
+
+</div>

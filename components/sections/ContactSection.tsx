@@ -54,7 +54,7 @@ export default function ContactSection() {
                 transition={{ delay: 0.2 }}
                 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 text-center text-gradient"
               >
-                Let's Work Together
+                Let&apos;s Work Together
               </motion.h2>
               
               <motion.p
@@ -64,7 +64,7 @@ export default function ContactSection() {
                 transition={{ delay: 0.3 }}
                 className="text-foreground/80 mb-4 sm:mb-6 md:mb-8 text-center text-sm sm:text-base md:text-lg leading-relaxed px-2"
               >
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+                I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
               </motion.p>
 
               <div className="mb-4 sm:mb-6">

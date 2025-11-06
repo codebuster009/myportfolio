@@ -128,7 +128,7 @@ export default function ServicesSection() {
             transition={{ delay: 0.3 }}
             className="text-foreground/80 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4"
           >
-            Scalable, Modern & Results-Driven. Whether it's a simple static site or a full-scale custom web application, I create seamless, user-friendly digital experiences designed to drive engagement, performance, and long-term growth.
+            Scalable, Modern & Results-Driven. Whether it&apos;s a simple static site or a full-scale custom web application, I create seamless, user-friendly digital experiences designed to drive engagement, performance, and long-term growth.
           </motion.p>
         </motion.div>
 
@@ -198,7 +198,7 @@ export default function ServicesSection() {
                 Need Just a Static Website?
               </h3>
               <p className="text-foreground/80 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-                If you're looking for a simple, content-driven website (e.g., landing pages, portfolios, marketing pages), I offer lighter packages at lower rates — no backend or dynamic functionality required.
+                If you&apos;re looking for a simple, content-driven website (e.g., landing pages, portfolios, marketing pages), I offer lighter packages at lower rates — no backend or dynamic functionality required.
               </p>
             </CardContent>
           </Card>

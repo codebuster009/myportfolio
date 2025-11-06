@@ -1,13 +1,13 @@
 "use client"
 
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef, useCallback } from "react"
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "framer-motion"
 import Image from "next/image"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTimes, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons"
+import { faTimes, faChevronLeft, faChevronRight, faVideo, faSpinner } from "@fortawesome/free-solid-svg-icons"
 import { cn } from "@/lib/utils"
 
 interface ProjectGalleryModalProps {
@@ -21,9 +21,10 @@ interface ProjectGalleryModalProps {
 }
 
 export default function ProjectGalleryModal({ isOpen, onClose, project }: ProjectGalleryModalProps) {
-  const [media, setMedia] = useState<{ type: 'video' | 'image'; src: string; alt?: string }[]>([])
+  const [media, setMedia] = useState<{ type: 'video' | 'image'; src: string; alt?: string; poster?: string }[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
+  const [videoLoading, setVideoLoading] = useState(true)
   const scrollRef = useRef<HTMLDivElement>(null)
   const startX = useRef(0)
   const scrollLeft = useRef(0)
@@ -38,8 +39,10 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
 
     const preloadMedia = (src: string, type: 'video' | 'image') => {
       if (type === 'video') {
+        // Only preload metadata for videos (not the entire video)
+        // This reduces initial load time
         const video = document.createElement('video')
-        video.preload = 'auto'
+        video.preload = 'metadata' // Changed from 'auto' to 'metadata' for faster initial load
         video.src = src
         video.load()
       } else {
@@ -53,48 +56,49 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
       const mediaFiles: { type: 'video' | 'image'; src: string; alt?: string }[] = []
       
       // Define media files based on folder name
-      const mediaMap: Record<string, { type: 'video' | 'image'; src: string; alt?: string }[]> = {
+      // Using optimized .mp4 files (compressed videos)
+      const mediaMap: Record<string, { type: 'video' | 'image'; src: string; alt?: string; poster?: string }[]> = {
         'p2u-project-assets': [
-          { type: 'video', src: '/p2u-project-assets/p2u-video.mov', alt: 'P2U Video' },
+          { type: 'video', src: '/p2u-project-assets/p2u-video.mp4', alt: 'P2U Video', poster: '/p2u-project-assets/login.png' },
           { type: 'image', src: '/p2u-project-assets/login.png', alt: 'P2U Login' },
           { type: 'image', src: '/p2u-project-assets/register.png', alt: 'P2U Register' },
         ],
         'MAI-project': [
-          { type: 'video', src: '/MAI-project/mai-video.mov', alt: 'MAI Video' },
+          { type: 'video', src: '/MAI-project/mai-video.mp4', alt: 'MAI Video', poster: '/MAI-project/homepage.png' },
           { type: 'image', src: '/MAI-project/homepage.png', alt: 'MAI Homepage' },
           { type: 'image', src: '/MAI-project/login.png', alt: 'MAI Login' },
           { type: 'image', src: '/MAI-project/management-dashboard.png', alt: 'MAI Dashboard' },
           { type: 'image', src: '/MAI-project/pricing-page.png', alt: 'MAI Pricing' },
         ],
         'vantage-cargo-project': [
-          { type: 'video', src: '/vantage-cargo-project/vantage-cargo.mov', alt: 'Vantage Cargo Video' },
+          { type: 'video', src: '/vantage-cargo-project/vantage-cargo.mp4', alt: 'Vantage Cargo Video', poster: '/vantage-cargo-project/home.png' },
           { type: 'image', src: '/vantage-cargo-project/home.png', alt: 'Vantage Home' },
           { type: 'image', src: '/vantage-cargo-project/package.png', alt: 'Vantage Package' },
           { type: 'image', src: '/vantage-cargo-project/portfolio.png', alt: 'Vantage Portfolio' },
           { type: 'image', src: '/vantage-cargo-project/contact-us.png', alt: 'Vantage Contact' },
         ],
         'Authnull-project': [
-          { type: 'video', src: '/Authnull-project/authnull.mov', alt: 'Authnull Video' },
+          { type: 'video', src: '/Authnull-project/authnull.mp4', alt: 'Authnull Video', poster: '/Authnull-project/authnull.png' },
           { type: 'image', src: '/Authnull-project/authnull.png', alt: 'Authnull Main' },
           { type: 'image', src: '/Authnull-project/blog-page.png', alt: 'Authnull Blog' },
         ],
         'Inlyne-project': [
-          { type: 'video', src: '/Inlyne-project/Inlyne.mov', alt: 'Inlyne Video' },
+          { type: 'video', src: '/Inlyne-project/Inlyne.mp4', alt: 'Inlyne Video', poster: '/Inlyne-project/home.png' },
           { type: 'image', src: '/Inlyne-project/home.png', alt: 'Inlyne Home' },
         ],
         'freighkit.ai-project': [
-          { type: 'video', src: '/freighkit.ai-project/freighkit-ai.mov', alt: 'Freighkit AI Video' },
+          { type: 'video', src: '/freighkit.ai-project/freighkit-ai.mp4', alt: 'Freighkit AI Video', poster: '/freighkit.ai-project/dashboard.png' },
           { type: 'image', src: '/freighkit.ai-project/dashboard.png', alt: 'Freighkit Dashboard' },
           { type: 'image', src: '/freighkit.ai-project/chatbot-integration.png', alt: 'Freighkit Chatbot' },
           { type: 'image', src: '/freighkit.ai-project/conversation.png', alt: 'Freighkit Conversation' },
         ],
         'custom-ai-service-project': [
-          { type: 'video', src: '/custom-ai-service-project/custom-ai-service.mov', alt: 'Custom AI Service Video' },
+          { type: 'video', src: '/custom-ai-service-project/custom-ai-service.mp4', alt: 'Custom AI Service Video', poster: '/custom-ai-service-project/services.png' },
           { type: 'image', src: '/custom-ai-service-project/services.png', alt: 'Custom AI Services' },
           { type: 'image', src: '/custom-ai-service-project/demo-integration.png', alt: 'Custom AI Demo' },
         ],
         'JAAFAR-car-project': [
-          { type: 'video', src: '/JAAFAR-car-project/jaafar.mov', alt: 'JAAFAR Car Video' },
+          { type: 'video', src: '/JAAFAR-car-project/jaafar.mp4', alt: 'JAAFAR Car Video', poster: '/JAAFAR-car-project/jaafar-home.png' },
           { type: 'image', src: '/JAAFAR-car-project/jaafar-home.png', alt: 'JAAFAR Home' },
           { type: 'image', src: '/JAAFAR-car-project/blog-page.png', alt: 'JAAFAR Blog' },
           { type: 'image', src: '/JAAFAR-car-project/sidebar.png', alt: 'JAAFAR Sidebar' },
@@ -104,15 +108,42 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
       const projectMedia = mediaMap[project.folderName] || []
       setMedia(projectMedia)
       setCurrentIndex(0)
+      setVideoLoading(true)
       
-      // Preload all media for this project
+      // Preload images immediately, but only metadata for videos
+      // This ensures images load fast while videos load progressively
       projectMedia.forEach((item) => {
-        preloadMedia(item.src, item.type)
+        if (item.type === 'image') {
+          preloadMedia(item.src, item.type)
+        } else {
+          // For videos, only preload metadata (duration, dimensions) not the full video
+          preloadMedia(item.src, item.type)
+        }
       })
     }
 
     loadMedia()
   }, [isOpen, project.folderName])
+
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prev) => {
+      if (prev < media.length - 1) {
+        setVideoLoading(true) // Reset loading state when changing media
+        return prev + 1
+      }
+      return prev
+    })
+  }, [media.length])
+
+  const handlePrevious = useCallback(() => {
+    setCurrentIndex((prev) => {
+      if (prev > 0) {
+        setVideoLoading(true) // Reset loading state when changing media
+        return prev - 1
+      }
+      return prev
+    })
+  }, [])
 
   // Keyboard navigation
   useEffect(() => {
@@ -130,7 +161,7 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [isOpen, currentIndex, media.length])
+  }, [isOpen, handleNext, handlePrevious, onClose])
 
   // Prevent body scroll when modal is open
   useEffect(() => {
@@ -143,18 +174,6 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
       document.body.style.overflow = 'unset'
     }
   }, [isOpen])
-
-  const handleNext = () => {
-    if (currentIndex < media.length - 1) {
-      setCurrentIndex(currentIndex + 1)
-    }
-  }
-
-  const handlePrevious = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1)
-    }
-  }
 
   // Drag handlers
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -280,19 +299,69 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
                       className="relative w-full h-full flex items-center justify-center max-w-7xl mx-auto"
                     >
                       {currentMedia.type === 'video' ? (
-                        <motion.video
-                          src={currentMedia.src}
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          preload="auto"
-                          className="w-full h-full object-contain rounded-lg"
-                          style={{ 
-                            filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.3))',
-                            boxShadow: '0 0 40px rgba(126, 116, 241, 0.15)'
-                          }}
-                        />
+                        <div className="relative w-full h-full">
+                          <motion.video
+                            src={currentMedia.src}
+                            poster={currentMedia.poster}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            preload="metadata"
+                            onLoadedData={() => setVideoLoading(false)}
+                            onError={(e) => {
+                              // Video failed to load
+                              console.error('Video failed to load:', e.currentTarget.src)
+                              setVideoLoading(false)
+                            }}
+                            className="w-full h-full object-contain rounded-lg"
+                            style={{ 
+                              filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.3))',
+                              boxShadow: '0 0 40px rgba(126, 116, 241, 0.15)',
+                              opacity: videoLoading ? 0.5 : 1,
+                              transition: 'opacity 0.3s ease'
+                            }}
+                          />
+                          {/* Loading Message Overlay */}
+                          <AnimatePresence>
+                            {videoLoading && (
+                              <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.9 }}
+                                transition={{ duration: 0.3 }}
+                                className="absolute inset-0 flex flex-col items-center justify-center bg-background/80 dark:bg-background/90 backdrop-blur-sm rounded-lg"
+                              >
+                                <motion.div
+                                  animate={{ rotate: 360 }}
+                                  transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                                  className="mb-4"
+                                >
+                                  <FontAwesomeIcon 
+                                    icon={faSpinner} 
+                                    className="text-4xl sm:text-5xl md:text-6xl text-primary" 
+                                  />
+                                </motion.div>
+                                <motion.div
+                                  initial={{ opacity: 0, y: 10 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  transition={{ delay: 0.1 }}
+                                  className="text-center px-4"
+                                >
+                                  <div className="flex items-center justify-center gap-2 mb-2">
+                                    <FontAwesomeIcon icon={faVideo} className="text-lg sm:text-xl text-primary" />
+                                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground">
+                                      Loading Video
+                                    </h3>
+                                  </div>
+                                  <p className="text-sm sm:text-base text-foreground/70 max-w-md">
+                                    This video may take a moment to load. Please wait...
+                                  </p>
+                                </motion.div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
                       ) : (
                         <motion.div
                           className="relative w-full h-full rounded-lg overflow-hidden"
@@ -394,7 +463,10 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
                     {media.map((item, index) => (
                       <motion.div
                         key={index}
-                        onClick={() => setCurrentIndex(index)}
+                        onClick={() => {
+                          setCurrentIndex(index)
+                          setVideoLoading(true) // Reset loading when clicking thumbnail
+                        }}
                         className={cn(
                           "flex-shrink-0 relative",
                           "w-24 h-16 sm:w-32 sm:h-20 md:w-40 md:h-24 lg:w-48 lg:h-32",
@@ -407,16 +479,21 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        {item.type === 'video' ? (
-                          <video
-                            src={item.src}
-                            className="w-full h-full object-cover"
-                            muted
-                            loop
-                            playsInline
-                            preload="auto"
-                          />
-                        ) : (
+                                {item.type === 'video' ? (
+                                  <video
+                                    src={item.src}
+                                    poster={item.poster}
+                                    className="w-full h-full object-cover"
+                                    muted
+                                    loop
+                                    playsInline
+                                    preload="metadata"
+                                    onError={(e) => {
+                                      // Video thumbnail failed to load
+                                      console.error('Video thumbnail failed to load:', e.currentTarget.src)
+                                    }}
+                                  />
+                                ) : (
                           <Image
                             src={item.src}
                             alt={item.alt || `${project.title} - Image ${index + 1}`}

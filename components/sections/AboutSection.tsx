@@ -79,10 +79,10 @@ export default function AboutSection() {
                   About Me
                 </h2>
                 <p className="text-foreground/90 text-base sm:text-lg md:text-xl leading-relaxed mb-4 md:mb-6">
-                  Whether it's crafting responsive UIs, working with backend APIs, or deploying scalable systems, I enjoy working across the stack to bring ideas to life.
+                  Whether it&apos;s crafting responsive UIs, working with backend APIs, or deploying scalable systems, I enjoy working across the stack to bring ideas to life.
                 </p>
                 <p className="text-foreground/90 text-base sm:text-lg md:text-xl leading-relaxed">
-                  I'm always open to freelance opportunities and excited to keep growing with every challenge—let's connect!
+                  I&apos;m always open to freelance opportunities and excited to keep growing with every challenge—let&apos;s connect!
                 </p>
               </motion.div>
             </CardContent>

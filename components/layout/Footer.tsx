@@ -37,7 +37,7 @@ export default function Footer() {
             transition={{ delay: 0.3 }}
             className="text-foreground/80 mb-6 md:mb-8 text-base sm:text-lg"
           >
-            Let's connect and build something amazing together!
+            Let&apos;s connect and build something amazing together!
           </motion.p>
 
           <motion.a
