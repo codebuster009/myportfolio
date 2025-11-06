@@ -3,6 +3,9 @@ import { Inter, Poppins } from "next/font/google"
 import "./globals.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css"
+import MediaPreloader from "@/components/MediaPreloader"
+import PreloadLinks from "@/components/PreloadLinks"
+import { ThemeProvider } from "@/components/ThemeProvider"
 
 config.autoAddCss = false
 
@@ -33,7 +36,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
-        {children}
+        <ThemeProvider>
+          <PreloadLinks />
+          <MediaPreloader />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

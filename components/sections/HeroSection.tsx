@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { socialLinks } from "@/lib/data"
+import AnimatedText from "@/components/AnimatedText"
 
 export default function HeroSection() {
   return (
@@ -45,25 +46,61 @@ export default function HeroSection() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="space-y-4 md:space-y-6 text-center md:text-left"
           >
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
-            >
-              <span className="text-gradient">Hello, I'm Kartavaya Sharma,</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <motion.span
+                animate={{
+                  filter: [
+                    "brightness(1) saturate(1)",
+                    "brightness(1.1) saturate(1.1)",
+                    "brightness(1) saturate(1)",
+                  ],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="inline-block"
+              >
+                <AnimatedText
+                  text="Hello, I'm Kartavaya"
+                  className="text-gradient"
+                  delay={0.2}
+                />
+              </motion.span>
               <br />
-              <span className="text-foreground">Frontend Fullstack Developer.</span>
-            </motion.h1>
+              <motion.span
+                animate={{
+                  opacity: [0.8, 1, 0.8],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="inline-block"
+              >
+                <AnimatedText
+                  text="Sharma,"
+                  className="text-gradient/80"
+                  delay={0.6}
+                />
+              </motion.span>
+              <br />
+              <AnimatedText
+                text="Frontend Fullstack Developer."
+                className="text-foreground"
+                delay={0.9}
+              />
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-base sm:text-lg md:text-xl text-foreground/85 leading-relaxed max-w-2xl mx-auto md:mx-0"
-            >
-              I'm a Frontend Developer with hands-on experience delivering fullstack solutions across diverse client projects. I bring strong development skills, a collaborative mindset, and a passion for building efficient, user-friendly applications.
-            </motion.p>
+            <p className="text-base sm:text-lg md:text-xl text-foreground/85 leading-relaxed max-w-2xl mx-auto md:mx-0">
+              <AnimatedText
+                text="I'm a Frontend Developer with hands-on experience delivering fullstack solutions across diverse client projects. I bring strong development skills, a collaborative mindset, and a passion for building efficient, user-friendly applications."
+                delay={1.3}
+                duration={0.3}
+              />
+            </p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}

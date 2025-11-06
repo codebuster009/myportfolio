@@ -4,72 +4,90 @@ export interface Project {
   title: string
   tech: string[]
   live: string
-  github: string
+  github?: string
   video?: string
   description?: string
+  folderName: string
 }
 
 export const projects: Project[] = [
   {
     id: 0,
-    src: "parties.png",
+    src: "p2u-project-assets/login.png",
     title: "Party2Users(P2U)",
     tech: ["ReactJs", "Javascript", "Framer Motion", "Tailwind CSS", "Redux", "Redis", "Server Events", "Websockets", "Node.js"],
     live: "https://parties2you.com/",
-    github: "https://github.com/codebuster009/AppleCart",
-    description: "A real-time party management platform with live updates and WebSocket integration"
+    description: "A real-time party management platform with live updates and WebSocket integration",
+    folderName: "p2u-project-assets"
   },
   {
     id: 1,
-    src: "marketing.png",
+    src: "MAI-project/homepage.png",
     title: "Marketing AI(MAI)",
     tech: ["ReactJs", "Javascript", "React Query", "Tailwind CSS", "Node.js"],
     live: "https://www.nextviralai.com/",
-    github: "https://github.com/codebuster009/Food-App",
-    description: "AI-powered marketing platform with advanced analytics and automation"
+    description: "AI-powered marketing platform with advanced analytics and automation",
+    folderName: "MAI-project"
+  },
+  {
+    id: 2,
+    src: "vantage-cargo-project/home.png",
+    title: "Vantage Cargo",
+    tech: ["ReactJs", "Framer Motion", "Tailwind CSS"],
+    live: "https://www.vantagecybertech.com/",
+    description: "Modern logistics and cargo management website with smooth animations",
+    folderName: "vantage-cargo-project"
   },
   {
     id: 3,
-    src: "vantage.png",
-    title: "Vantage Cybertech",
-    tech: ["ReactJs", "Framer Motion", "Tailwind CSS"],
-    live: "https://www.vantagecybertech.com/",
-    github: "https://github.com/codebuster009/Tenzies-Game",
-    description: "Modern cybersecurity company website with smooth animations"
-  },
-  {
-    id: 4,
-    src: "authnull.png",
+    src: "Authnull-project/authnull.png",
     title: "Authnull",
     tech: ["ReactJs", "Redux", "Ant Design Library"],
     live: "https://authnull.com/",
-    github: "https://github.com/codebuster009/Tenzies-Game",
-    description: "Authentication and security platform with enterprise features"
+    description: "Authentication and security platform with enterprise features",
+    folderName: "Authnull-project"
+  },
+  {
+    id: 4,
+    src: "Inlyne-project/home.png",
+    title: "Inlyne",
+    tech: ["React Native", "ReactJs", "TypeScript", "Tailwind CSS", "Framer Motion", "shadcn/ui"],
+    live: "#",
+    description: "Modern web application with elegant design and smooth user experience",
+    folderName: "Inlyne-project"
   },
   {
     id: 5,
-    src: "lifetimes.png",
-    title: "Lifetime Memories",
-    tech: ["ReactJs", "CSS", "React Query", "HTML5"],
-    live: "https://golden-bubblegum-70b630.netlify.app/",
-    github: "https://github.com/codebuster009/TaskMate",
-    description: "A platform for preserving and sharing life's precious moments"
+    src: "freighkit.ai-project/dashboard.png",
+    title: "Freighkit AI",
+    tech: ["ReactJs", "TypeScript", "Tailwind CSS", "shadcn/ui", "AI Integration"],
+    live: "#",
+    description: "AI-powered freight management platform with intelligent chatbot integration",
+    folderName: "freighkit.ai-project"
   },
   {
     id: 6,
-    src: "apple.png",
-    title: "Apple Cart",
-    tech: ["ReactJs", "Javascript", "HTML5", "CSS3"],
-    live: "https://elegant-cuchufli-37a844.netlify.app/",
-    github: "https://github.com/codebuster009/AppleCart",
-    description: "E-commerce platform with modern UI and seamless shopping experience"
+    src: "custom-ai-service-project/services.png",
+    title: "Custom AI Service",
+    tech: ["ReactJs", "TypeScript", "Tailwind CSS", "AI/ML"],
+    live: "#",
+    description: "Custom AI service platform with advanced integration capabilities",
+    folderName: "custom-ai-service-project"
+  },
+  {
+    id: 7,
+    src: "JAAFAR-car-project/jaafar-home.png",
+    title: "JAAFAR Car",
+    tech: ["ReactJs", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    live: "#",
+    description: "Modern car dealership platform with elegant design and seamless user experience",
+    folderName: "JAAFAR-car-project"
   },
 ]
 
 export const socialLinks = {
   github: "https://github.com/codebuster009",
-  twitter: "https://twitter.com/codebuster09",
-  linkedin: "https://www.linkedin.com/in/kartavya-sharma-a17035230",
+  linkedin: "https://www.linkedin.com/in/kartavaya-sharma-a17035230/",
   email: "kartavyasharmajs@gmail.com",
 }
 

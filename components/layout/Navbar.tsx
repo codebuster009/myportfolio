@@ -3,11 +3,12 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faGithub, faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons"
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons"
 import { Button } from "@/components/ui/button"
 import { socialLinks } from "@/lib/data"
 import { cn } from "@/lib/utils"
+import ThemeToggle from "@/components/ThemeToggle"
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -27,6 +28,7 @@ export default function Navbar() {
     { name: "Projects", href: "#projects" },
     { name: "Technologies", href: "#technologies" },
     { name: "Contact", href: "#contact" },
+    { name: "Resume", href: "https://drive.google.com/file/d/1QsUpeGSkTSaXT_YDjI5mIL2oWKkqP17r/view?usp=sharing", external: true },
   ]
 
   return (
@@ -55,6 +57,8 @@ export default function Navbar() {
               <motion.a
                 key={link.name}
                 href={link.href}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -66,8 +70,9 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Social Icons */}
+          {/* Social Icons & Theme Toggle */}
           <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
             <motion.a
               href={socialLinks.github}
               target="_blank"
@@ -77,16 +82,6 @@ export default function Navbar() {
               className="text-foreground/70 hover:text-primary transition-colors"
             >
               <FontAwesomeIcon icon={faGithub} size="lg" />
-            </motion.a>
-            <motion.a
-              href={socialLinks.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, rotate: -5 }}
-              whileTap={{ scale: 0.9 }}
-              className="text-foreground/70 hover:text-primary transition-colors"
-            >
-              <FontAwesomeIcon icon={faTwitter} size="lg" />
             </motion.a>
             <motion.a
               href={socialLinks.linkedin}
@@ -123,6 +118,8 @@ export default function Navbar() {
                   <a
                     key={link.name}
                     href={link.href}
+                    target={link.external ? "_blank" : undefined}
+                    rel={link.external ? "noopener noreferrer" : undefined}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-foreground/80 hover:text-primary transition-colors font-medium py-2"
                   >
@@ -130,6 +127,7 @@ export default function Navbar() {
                   </a>
                 ))}
                 <div className="flex items-center gap-4 pt-2">
+                  <ThemeToggle />
                   <a
                     href={socialLinks.github}
                     target="_blank"
@@ -137,14 +135,6 @@ export default function Navbar() {
                     className="text-foreground/70 hover:text-primary transition-colors"
                   >
                     <FontAwesomeIcon icon={faGithub} size="lg" />
-                  </a>
-                  <a
-                    href={socialLinks.twitter}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground/70 hover:text-primary transition-colors"
-                  >
-                    <FontAwesomeIcon icon={faTwitter} size="lg" />
                   </a>
                   <a
                     href={socialLinks.linkedin}

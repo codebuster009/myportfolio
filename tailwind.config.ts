@@ -49,7 +49,7 @@ const config = {
           foreground: "hsl(var(--popover-foreground))",
         },
         card: {
-          DEFAULT: "rgba(255,255,255,0.45)",
+          DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
       },
@@ -65,7 +65,9 @@ const config = {
       },
       boxShadow: {
         'glass': '0 4px 24px rgba(0,0,0,0.08)',
+        'glass-dark': '0 4px 24px rgba(0,0,0,0.4)',
         'glass-hover': '0 0 20px rgba(126,116,241,0.25)',
+        'glass-hover-dark': '0 0 30px rgba(126,116,241,0.4)',
       },
       fontFamily: {
         sans: ['Inter', 'Poppins', 'sans-serif'],

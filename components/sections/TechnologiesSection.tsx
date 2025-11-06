@@ -35,7 +35,7 @@ const technologies = [
 export default function TechnologiesSection() {
   return (
     <section id="technologies" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="container mx-auto">
+      <div className="container mx-auto max-w-full overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ export default function TechnologiesSection() {
         </motion.div>
 
         <TooltipProvider>
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3 sm:gap-4 md:gap-6">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-2 sm:gap-3 md:gap-4 lg:gap-6 max-w-full overflow-hidden">
             {technologies.map((tech, index) => (
               <motion.div
                 key={tech.name}
@@ -65,27 +65,23 @@ export default function TechnologiesSection() {
                   stiffness: 200,
                   damping: 20,
                 }}
+                className="w-full max-w-full"
               >
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <motion.div
                       whileHover={{
-                        scale: 1.15,
+                        scale: 1.1,
                         rotate: [0, -10, 10, -10, 0],
                       }}
                       whileTap={{ scale: 0.9 }}
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                      className="w-full h-full"
                     >
-                      <Card className="glass-hover p-3 sm:p-4 md:p-6 flex items-center justify-center cursor-pointer aspect-square">
+                      <Card className="glass-hover p-2 sm:p-3 md:p-4 lg:p-6 flex items-center justify-center cursor-pointer aspect-square w-full h-full max-w-full overflow-hidden">
                         <FontAwesomeIcon
                           icon={tech.icon}
-                          size="2x"
-                          className={`${tech.color} sm:hidden`}
-                        />
-                        <FontAwesomeIcon
-                          icon={tech.icon}
-                          size="3x"
-                          className={`${tech.color} hidden sm:block`}
+                          className={`${tech.color} text-2xl sm:text-3xl md:text-4xl lg:text-5xl`}
                         />
                       </Card>
                     </motion.div>

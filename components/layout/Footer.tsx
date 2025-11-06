@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faGithub, faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons"
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import { socialLinks } from "@/lib/data"
 
@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer id="contact" className="relative py-16 overflow-hidden">
       {/* Wave Background */}
-      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-background/50" />
+      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-background/50 dark:to-background/70" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -35,7 +35,7 @@ export default function Footer() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-muted-foreground mb-6 md:mb-8 text-base sm:text-lg"
+            className="text-foreground/80 mb-6 md:mb-8 text-base sm:text-lg"
           >
             Let's connect and build something amazing together!
           </motion.p>
@@ -71,16 +71,6 @@ export default function Footer() {
               <FontAwesomeIcon icon={faGithub} className="text-xl sm:text-2xl" />
             </motion.a>
             <motion.a
-              href={socialLinks.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, rotate: -5 }}
-              whileTap={{ scale: 0.9 }}
-              className="text-foreground/70 hover:text-primary transition-colors"
-            >
-              <FontAwesomeIcon icon={faTwitter} className="text-xl sm:text-2xl" />
-            </motion.a>
-            <motion.a
               href={socialLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
@@ -97,7 +87,7 @@ export default function Footer() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
-            className="text-muted-foreground mt-8 text-sm"
+            className="text-foreground/60 mt-8 text-sm"
           >
             © {new Date().getFullYear()} Kartavaya Sharma. All rights reserved.
           </motion.p>
