@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 255 255;
+    --foreground: 11 11 13;
+    --card: 255 255 255;
+    --card-foreground: 11 11 13;
+    --popover: 255 255 255;
+    --popover-foreground: 11 11 13;
+    --primary: 126 116 241;
+    --primary-foreground: 255 255 255;
+    --secondary: 161 178 255;
+    --secondary-foreground: 11 11 13;
+    --muted: 230 235 255;
+    --muted-foreground: 78 78 92;
+    --accent: 195 200 255;
+    --accent-foreground: 11 11 13;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 230 235 255;
+    --input: 230 235 255;
+    --ring: 126 116 241;
+    --radius: 1.5rem;
+  }
+
+  .dark {
+    --background: 11 11 13;
+    --foreground: 255 255 255;
+    --card: 20 20 30;
+    --card-foreground: 255 255 255;
+    --popover: 20 20 30;
+    --popover-foreground: 255 255 255;
+    --primary: 126 116 241;
+    --primary-foreground: 255 255 255;
+    --secondary: 161 178 255;
+    --secondary-foreground: 255 255 255;
+    --muted: 40 40 50;
+    --muted-foreground: 200 200 210;
+    --accent: 195 200 255;
+    --accent-foreground: 255 255 255;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 40 40 50;
+    --input: 40 40 50;
+    --ring: 126 116 241;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-gradient-to-br from-[#E6EBFF] to-[#F9FAFF] text-foreground;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-glass bg-card/45 border border-white/20 shadow-glass;
+  }
+  
+  .glass-mobile {
+    @apply backdrop-blur-glass-mobile bg-card/45 border border-white/20 shadow-glass;
+  }
+  
+  .glass-hover {
+    @apply transition-all ease-in-out hover:scale-[1.03] hover:shadow-glass-hover;
+    transition-duration: 400ms;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(126, 116, 241, 0.3);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(126, 116, 241, 0.5);
+}
+

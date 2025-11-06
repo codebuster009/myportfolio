@@ -1,0 +1,167 @@
+{
+  "project": "Kartavaya Portfolio Redesign",
+  "goal": "Revamp the existing portfolio into a visually stunning, interactive light frosted-glass theme using motion.dev, shadcn/ui, and Font Awesome for a modern, immersive experience.",
+  "design_system": {
+    "theme": {
+      "style": "Light Frosted Glass (Glassmorphism)",
+      "palette": {
+        "primary": "#7E74F1",
+        "secondary": "#A1B2FF",
+        "accent": "#C3C8FF",
+        "background": "rgba(255,255,255,0.75)",
+        "card_background": "rgba(255,255,255,0.45)",
+        "blur_intensity": "20px",
+        "text_primary": "#0B0B0D",
+        "text_secondary": "#4E4E5C",
+        "gradient": "linear-gradient(135deg, #E6EBFF 0%, #F9FAFF 100%)",
+        "shadow": "0 4px 24px rgba(0,0,0,0.08)"
+      },
+      "typography": {
+        "font_primary": "Inter, Poppins, sans-serif",
+        "heading_weight": 700,
+        "body_weight": 400,
+        "title_size": "clamp(2.2rem, 4vw, 3.4rem)",
+        "subtitle_size": "clamp(1rem, 2vw, 1.25rem)",
+        "body_size": "1rem",
+        "letter_spacing": "0.015em",
+        "line_height": 1.6
+      },
+      "radius": {
+        "default": "1.5rem",
+        "buttons": "2rem",
+        "cards": "1.75rem"
+      },
+      "animation": {
+        "hover_glow": {
+          "effect": "scale(1.03)",
+          "shadow": "0 0 20px rgba(126,116,241,0.25)",
+          "duration": "0.4s ease"
+        },
+        "fade_in": {
+          "type": "motion.dev fadeInUp",
+          "duration": "0.8s",
+          "delay": "staggered for children"
+        },
+        "card_reveal": {
+          "type": "framer-motion",
+          "animation": "slide up & fade",
+          "duration": "0.6s"
+        }
+      }
+    },
+    "layout_structure": {
+      "sections": [
+        {
+          "name": "Hero",
+          "layout": "centered vertical stack",
+          "elements": ["Profile Image", "Headline", "Subtext", "CTA Button"],
+          "style": "blurred background panel with gradient overlay and subtle reflection"
+        },
+        {
+          "name": "Introduction",
+          "layout": "two-column grid",
+          "elements": ["Short bio", "Interactive photo card"],
+          "style": "frosted panels with soft edge light reflections"
+        },
+        {
+          "name": "Projects",
+          "layout": "3-column responsive grid",
+          "elements": [
+            "Project thumbnail (image or looping video)",
+            "Project title",
+            "Tech stack list",
+            "CTA button ('Play' or 'View Project')"
+          ],
+          "media_behavior": "auto-play muted preview video on hover",
+          "style": "elevated cards with blur-glass effect and hover glow"
+        },
+        {
+          "name": "Technologies",
+          "layout": "icon grid with hover tooltips",
+          "style": "glass-like icon tiles with motion.dev hover pop animations",
+          "icons": "Font Awesome + custom SVG + shadcn badges"
+        },
+        {
+          "name": "Contact",
+          "layout": "centered column",
+          "elements": ["Short text", "Social links", "Email", "CTA"],
+          "style": "soft blur background with accent glow under icons"
+        }
+      ]
+    },
+    "interaction_design": {
+      "animations": {
+        "page_load": "motion.dev fadeIn with slight parallax",
+        "scroll_effects": "section fade & rise with 0.1s delay cascade",
+        "cursor_effects": "blur trail on hover using framer-motion",
+        "glass_hover": "dynamic lighting simulation via gradient animation"
+      },
+      "transitions": {
+        "timing": "ease-in-out",
+        "duration": "300–600ms",
+        "type": "smooth"
+      }
+    },
+    "component_guidelines": {
+      "use_shadcn": [
+        "Card",
+        "Button",
+        "Tooltip",
+        "Tabs",
+        "Dialog",
+        "Avatar",
+        "Navbar",
+        "Badge"
+      ],
+      "use_motion_dev": [
+        "Page transitions",
+        "Card reveals",
+        "Hover glow",
+        "Scroll animations"
+      ],
+      "use_font_awesome": [
+        "Social icons",
+        "Tech stack symbols",
+        "Contact section icons"
+      ]
+    },
+    "media": {
+      "project_videos": {
+        "format": "mp4/webm, autoplay muted loop",
+        "fallback": "poster image preview",
+        "aspect_ratio": "16:9",
+        "hover_interaction": "video starts and pauses on hover"
+      },
+      "images": {
+        "compression": "optimized for web (next-gen formats)",
+        "blur_preview": "yes, using CSS backdrop-filter"
+      }
+    },
+    "improvements": {
+      "overall": [
+        "Add looping project videos instead of static thumbnails",
+        "Integrate subtle ambient motion for background layers",
+        "Introduce a theme switcher (light / frost / dark)",
+        "Add smooth entrance animations using motion.dev presets",
+        "Make UI components consistent via shadcn design tokens"
+      ]
+    },
+    "responsive_rules": {
+      "mobile": {
+        "layout": "stacked single column",
+        "blur_intensity": "10px",
+        "reduced_motion": "enabled"
+      },
+      "tablet": {
+        "layout": "2-column grid",
+        "card_spacing": "1rem"
+      },
+      "desktop": {
+        "layout": "multi-grid, 3-column projects",
+        "animation_intensity": "100%"
+      }
+    }
+  }
+}
+
+
