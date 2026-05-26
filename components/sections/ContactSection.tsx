@@ -130,7 +130,7 @@ export default function ContactSection() {
                   type="button"
                   size="lg"
                   disabled={true}
-                  className="w-full glass-hover bg-gradient-to-r from-primary/50 via-primary/40 to-secondary/50 hover:from-primary/50 hover:via-primary/40 hover:to-secondary/50 text-white cursor-not-allowed opacity-60 text-sm sm:text-base h-10 sm:h-11 md:h-12 px-4 sm:px-6"
+                  className="w-full glass-hover bg-gradient-to-r from-primary/50 via-primary/40 to-indigo-500/50 hover:from-primary/50 hover:via-primary/40 hover:to-indigo-500/50 text-white cursor-not-allowed opacity-60 text-sm sm:text-base h-10 sm:h-11 md:h-12 px-4 sm:px-6"
                 >
                   <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-sm sm:text-base" />
                   <span className="whitespace-nowrap">Send Message (Coming Soon)</span>
@@ -147,7 +147,7 @@ export default function ContactSection() {
                     size="lg"
                     onClick={handleMailtoClick}
                     disabled={!isFormFilled}
-                    className="w-full glass-hover bg-gradient-to-r from-primary/80 via-primary/70 to-secondary/80 hover:from-primary hover:via-primary/90 hover:to-secondary text-white disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base h-10 sm:h-11 md:h-12 px-4 sm:px-6"
+                    className="w-full glass-hover bg-gradient-to-r from-primary/80 via-primary/70 to-indigo-500/80 hover:from-primary hover:via-primary/90 hover:to-indigo-500 text-white disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base h-10 sm:h-11 md:h-12 px-4 sm:px-6"
                   >
                     <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-sm sm:text-base" />
                     <span className="text-center">

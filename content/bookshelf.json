@@ -1,0 +1,52 @@
+{
+  "books": [
+    {
+      "title": "Designing Data-Intensive Applications",
+      "author": "Martin Kleppmann",
+      "cover": "",
+      "rating": 5,
+      "take": "The book that should be issued to every backend developer on day one. I've read it twice and I'm still finding new things.",
+      "current": true
+    },
+    {
+      "title": "Project Hail Mary",
+      "author": "Andy Weir",
+      "cover": "",
+      "rating": 5,
+      "take": "Read it in one weekend. Made me believe in sci-fi again.",
+      "current": false
+    },
+    {
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "cover": "",
+      "rating": 4,
+      "take": "Half of it is obvious. The other half is the half I needed.",
+      "current": false
+    },
+    {
+      "title": "The Pragmatic Programmer",
+      "author": "Andy Hunt and Dave Thomas",
+      "cover": "",
+      "rating": 5,
+      "take": "Still holds up. The chapter on broken windows changed how I review code.",
+      "current": false
+    },
+    {
+      "title": "Sapiens",
+      "author": "Yuval Noah Harari",
+      "cover": "",
+      "rating": 4,
+      "take": "Confidently wrong in places, but the parts that land hit hard.",
+      "current": false
+    },
+    {
+      "title": "The Mom Test",
+      "author": "Rob Fitzpatrick",
+      "cover": "",
+      "rating": 5,
+      "take": "Short, brutal, and the only sales book I have ever finished. Useful for freelancing too.",
+      "current": false
+    }
+  ]
+}

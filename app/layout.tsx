@@ -1,31 +1,37 @@
-import type { Metadata } from "next"
-import { Inter, Poppins } from "next/font/google"
 import "./globals.css"
+
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import "@fontsource/caveat/400.css"
 import { config } from "@fortawesome/fontawesome-svg-core"
 import "@fortawesome/fontawesome-svg-core/styles.css"
-import MediaPreloader from "@/components/MediaPreloader"
-import PreloadLinks from "@/components/PreloadLinks"
+import AssistantPopover from "@/components/assistant/AssistantPopover"
+import SiteEnhancements from "@/components/SiteEnhancements"
 import { ThemeProvider } from "@/components/ThemeProvider"
 
 config.autoAddCss = false
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
 })
 
-const poppins = Poppins({ 
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-poppins",
-  display: "swap",
-})
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+
+export const dynamic = "force-dynamic"
 
 export const metadata: Metadata = {
-  title: "Kartavaya Sharma - Frontend Fullstack Developer",
-  description: "Portfolio of Kartavaya Sharma, a Frontend Developer with hands-on experience delivering fullstack solutions across diverse client projects.",
-  keywords: ["portfolio", "frontend developer", "fullstack developer", "react", "next.js"],
+  metadataBase: new URL(siteUrl),
+  title: "Kartavaya Sharma | builder, reader, writer",
+  description:
+    "Personal site: projects, writing on travel, books, habits, learning, and systems, plus the occasional honest note.",
+  keywords: ["portfolio", "developer", "writing", "react", "next.js", "kartavaya sharma"],
+  alternates: {
+    types: {
+      "application/rss+xml": "/feed.xml",
+    },
+  },
 }
 
 export default function RootLayout({
@@ -35,15 +41,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} font-sans antialiased`}>
         <ThemeProvider>
-          <PreloadLinks />
-          <MediaPreloader />
+          <SiteEnhancements />
+          <AssistantPopover />
           {children}
         </ThemeProvider>
       </body>
     </html>
   )
 }
-
-

@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# CMS uploads (optional: remove these lines if you want images committed)
+/public/uploads/*
+!/public/uploads/.gitkeep

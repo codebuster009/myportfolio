@@ -66,3 +66,7 @@ echo "2. Test the videos to ensure quality is acceptable"
 echo "3. Optionally delete .mov files after confirming MP4s work"
 echo ""
 
+
+
+
+

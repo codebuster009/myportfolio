@@ -1,0 +1,32 @@
+---
+title: "The week I rewrote our auth flow"
+date: "2026-02-04"
+excerpt: "An angry user, a bad assumption, and the part of the codebase nobody wanted to touch."
+cover: "/Authnull-project/authnull.png"
+tags:
+  - auth
+  - backend
+  - lessons
+---
+
+The ticket said "users randomly logged out, please fix asap." Tuesday morning, the senior on the team was on vacation. I picked it up.
+
+Should've known better. Anything labelled "random" in a ticket is never random.
+
+First thing I did, predictably, was add more logging. Second thing I did was read the code I was about to debug, which honestly should have been first. The auth flow worked like this: user logs in, we issue a JWT, store it in localStorage, frontend attaches it to every request, backend verifies the signature. Standard, boring. The only twist was that we also stored a refresh token in a cookie and rotated the JWT every fifteen minutes.
+
+The bug, once I found it: the rotation was happening on the wrong response. When the JWT was about to expire, the backend issued a new one. But we were sending the new JWT in the response body, not in a header. The frontend was caching the old JWT in a global variable that only got refreshed on certain routes. So if you happened to be on a page that didn't re-read the user object after a network call, you'd silently start sending an expired token. Server 401s. Frontend logs you out.
+
+It was "random" because it depended on which pages you visited in what order. Not random at all to the people who used the same pages every day.
+
+I rewrote it. Moved the JWT into an `HttpOnly` cookie so localStorage never touched it. Put rotation into a response header that a tiny axios interceptor was always listening for. Killed the global variable. Made the frontend read the JWT from the cookie on every authenticated request instead. Single source of truth for "am I logged in", and removed every place we'd been checking three different things.
+
+New version is twenty fewer lines of code. Can't fail the way the old one was failing. Also can't fail in three other ways the old one could have failed, that we just hadn't hit yet.
+
+Two things I took away.
+
+One. "Random" bugs are usually a state-management problem. Something has two sources of truth and they've drifted apart. Find the second source, kill it, point everything at the first. Fix is usually shorter than the broken version.
+
+Two. Auth is the part of every codebase everyone's afraid to touch because the cost of getting it wrong is so high. That fear is exactly why it accretes complexity. Nobody wants to clean it up. So it gets workaround on top of workaround for years. Spending a week to actually rewrite it, when there's specific user pain you can point at, is one of the highest-leverage things you can do in a small team.
+
+Shipped on Thursday. The Slack channel went quiet, which is the highest praise you can get for an auth change.

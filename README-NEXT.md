@@ -117,20 +117,42 @@ Edit `tailwind.config.ts` and `app/globals.css` to customize the color scheme.
 
 ## 🚢 Deployment
 
-### Vercel (Recommended)
+### Vercel (recommended)
 
-1. Push your code to GitHub
-2. Import your repository on [Vercel](https://vercel.com)
-3. Vercel will automatically detect Next.js and deploy
+1. Push your code to GitHub.
+2. Import the repository on [Vercel](https://vercel.com); it will detect Next.js.
+3. **Environment variables** — copy from [.env.example](.env.example) and set in the Vercel project:
+   - `DATABASE_URL` — Neon (or any Postgres) connection string
+   - `AUTH_SECRET`, `AUTH_URL` (production site URL), `AUTH_GITHUB_ID`, `AUTH_GITHUB_SECRET`
+   - `ADMIN_GITHUB_LOGINS` — comma-separated GitHub usernames allowed into `/admin`
+   - `NEXT_PUBLIC_SITE_URL` — canonical public URL (metadata + RSS)
+   - `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` — for media uploads (public bucket, e.g. `media`)
+   - `CRON_SECRET` — **required in production** for `/api/cron/publish` (scheduled posts); Vercel Cron sends `Authorization: Bearer <CRON_SECRET>` when this env var is set
+4. **Database** — run locally or in CI after `DATABASE_URL` is available:
+   ```bash
+   npm run db:push
+   npm run migrate:content
+   ```
+   `migrate:content` reads legacy files under `content/` and seeds Postgres (safe to re-run while iterating).
+5. **Cron** — [vercel.json](vercel.json) defines an hourly job hitting `/api/cron/publish` so `scheduled` posts publish on time.
 
-### Other Platforms
+### GitHub OAuth callback
+
+Use `{AUTH_URL}/api/auth/callback/github` (e.g. `https://yourdomain.com/api/auth/callback/github`).
+
+### Decap / Netlify CMS
+
+The old Decap Netlify Flow has been removed. Use `/admin` (GitHub allowlist + Auth.js) for all content.
+
+### Other platforms
 
 Build the project:
+
 ```bash
 npm run build
 ```
 
-The output will be in the `.next` folder. Deploy according to your hosting platform's Next.js documentation.
+Output is in `.next`. Run `npm start` to smoke-test a production server locally. Deploy per your host’s Next.js docs.
 
 ## 📄 License
 

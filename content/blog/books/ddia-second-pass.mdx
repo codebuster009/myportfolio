@@ -1,0 +1,30 @@
+---
+title: "Reading DDIA for the second time"
+slug: ddia-second-pass
+date: "2026-05-04"
+excerpt: "The book that gets harder, not easier, on a second pass."
+cover: "https://picsum.photos/seed/ddia-bookshelf/1200/675"
+tags:
+  - books
+  - distributed-systems
+---
+
+I'm reading *Designing Data-Intensive Applications* for the second time. First time I read it was two years ago, after a senior on the team kept saying "yeah it's in DDIA" until I gave up and bought it. Got about 70% through, took useful notes, felt smart for a month.
+
+The second pass is different. The book has gotten harder, not easier.
+
+The first time, I treated every chapter like a quiz. Reads about CAP, makes mental flashcard, moves on. Felt like learning. Was mostly memorizing.
+
+This time, I keep stopping because I recognize a thing I shipped wrong. Chapter four on data encoding made me pull up a service I wrote in 2024 and realize I'd been doing schema evolution backwards. Chapter five on replication explained a flaky test we'd been ignoring for months in production. Chapter seven on transactions made me physically cringe at a database call in a payment endpoint I touched last quarter.
+
+The book wasn't harder before. It was further away. The further away a topic is from your actual work, the easier it is to skim past it. The closer it is, the more it punishes you.
+
+Two things I'm taking from the second pass that didn't land the first time.
+
+One. Kleppmann doesn't present trade-offs as preferences. He presents them as constraints. You can have either A or B, given the physics and the math. Most of the systems I've shipped chose A or B accidentally, by virtue of which library I imported.
+
+Two. The book is mostly about consistency, in different costumes. Consistency between replicas. Consistency between a cache and the database it caches. Consistency between what the client thinks happened and what the server thinks happened. Once you see that, half the chapters start feeling like the same chapter at different scales.
+
+Highly recommend it, including the second read. The notes I'm taking now would have been unreadable to me two years ago, because they assume things I didn't know two years ago. That's the right kind of difficulty.
+
+I'll do a third pass in maybe 2028. By then I'll probably hate it for slightly more specific reasons.

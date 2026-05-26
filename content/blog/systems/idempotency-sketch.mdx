@@ -1,0 +1,25 @@
+---
+title: "Idempotency in three sentences"
+date: "2026-01-02"
+excerpt: "The hand-wavy made concrete after the second time I deducted the same client twice."
+cover: "https://picsum.photos/seed/idempotency-abstract/1200/675"
+tags:
+  - distributed-systems
+  - backend
+---
+
+The first time I shipped a payment endpoint, I learned about idempotency the way most people do. Slack message at 11:47 pm that started with "hey can you take a look at this."
+
+A client had been double-charged. Frontend retried after a network blip. Server happily processed both requests. Two charges, one purchase, one very unhappy customer. The fix was three lines of code. The lesson took longer.
+
+Here's the version I wish someone had handed me earlier. Three sentences.
+
+**1. Idempotent means: call it twice with the same input, the result's the same as calling it once.** That's the whole definition. A GET is naturally idempotent. A DELETE for a specific id is idempotent. A POST that creates a new resource is the dangerous one, because two POSTs make two resources.
+
+**2. You make a POST idempotent by attaching a client-generated key to each logical operation and rejecting duplicate keys server-side.** The client generates a UUID for the action (not the request, the action). The server stores `(key, response)` for some window. Any retry with the same key returns the cached response instead of doing the work again. Same pattern Stripe uses with their `Idempotency-Key` header. Same pattern every payment API uses. There's a reason.
+
+**3. The hard part isn't the key. It's deciding when to expire it, and what counts as "the same operation."** Five minutes is too short for a flaky mobile network. Forever is too long for storage. A day is usually right. And "same operation" is a product question, not a backend one. Is `addItemToCart(socks)` the same operation if I send it twice in a row? Probably yes. Is `submitFeedback(text: "hello")` the same operation? Probably yes. Is `clickLikeButton`? You'd better hope so.
+
+Most outages I've debugged didn't happen because the code was wrong. They happened because the code was right under conditions the original author didn't imagine. Networks blip. Phones lose signal mid-request. Background jobs retry on cron. The thing your code does on the happy path is one of a hundred things it'll be asked to do, and the other ninety-nine all involve being called more than once.
+
+Idempotency isn't a fancy concept. It's a humility concept. The engineering acknowledgment that your function will be called twice and you don't get to control that.

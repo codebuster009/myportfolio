@@ -3,10 +3,11 @@ import type { Config } from "tailwindcss"
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+    "./lib/**/*.{ts,tsx}",
   ],
   prefix: "",
   theme: {
@@ -25,15 +26,15 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#7E74F1",
+          DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "#A1B2FF",
+          DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
         accent: {
-          DEFAULT: "#C3C8FF",
+          DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
         destructive: {
@@ -54,23 +55,18 @@ const config = {
         },
       },
       borderRadius: {
-        lg: "1.5rem",
-        md: "1.75rem",
-        sm: "2rem",
-      },
-      backdropBlur: {
-        xs: '2px',
-        glass: '20px',
-        'glass-mobile': '10px',
-      },
-      boxShadow: {
-        'glass': '0 4px 24px rgba(0,0,0,0.08)',
-        'glass-dark': '0 4px 24px rgba(0,0,0,0.4)',
-        'glass-hover': '0 0 20px rgba(126,116,241,0.25)',
-        'glass-hover-dark': '0 0 30px rgba(126,116,241,0.4)',
+        lg: "0.5rem",
+        md: "0.375rem",
+        sm: "0.25rem",
       },
       fontFamily: {
-        sans: ['Inter', 'Poppins', 'sans-serif'],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        signature: ["Caveat", "cursive", "serif"],
+      },
+      boxShadow: {
+        glass: "0 8px 32px 0 rgba(67, 56, 202, 0.12)",
+        "glass-hover":
+          "0 12px 40px 0 rgba(99, 102, 241, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.12)",
       },
       keyframes: {
         "accordion-down": {
@@ -82,35 +78,23 @@ const config = {
           to: { height: "0" },
         },
         "fade-in-up": {
-          "0%": {
-            opacity: "0",
-            transform: "translateY(20px)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateY(0)",
-          },
+          "0%": { opacity: "0", transform: "translateY(12px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        "glow": {
-          "0%, 100%": {
-            boxShadow: "0 0 20px rgba(126,116,241,0.25)",
-          },
-          "50%": {
-            boxShadow: "0 0 30px rgba(126,116,241,0.4)",
-          },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "fade-in-up": "fade-in-up 0.8s ease-out",
-        "glow": "glow 2s ease-in-out infinite",
+        "fade-in-up": "fade-in-up 0.7s ease-out both",
+        marquee: "marquee 28s linear infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config
 
 export default config
-
-

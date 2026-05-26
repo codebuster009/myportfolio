@@ -1,0 +1,96 @@
+{
+  "now": {
+    "kind": "album",
+    "title": "An Awesome Wave",
+    "by": "alt-J",
+    "cover": "/playlist-covers/an-awesome-wave.png",
+    "link": "https://open.spotify.com/search/an%20awesome%20wave%20alt-j"
+  },
+  "albums": [
+    {
+      "title": "An Awesome Wave",
+      "by": "alt-J",
+      "cover": "/playlist-covers/an-awesome-wave.png",
+      "link": "https://open.spotify.com/search/an%20awesome%20wave%20alt-j"
+    },
+    {
+      "title": "Currents",
+      "by": "Tame Impala",
+      "cover": "/playlist-covers/currents.png",
+      "link": "https://open.spotify.com/search/currents%20tame%20impala"
+    },
+    {
+      "title": "Channel Orange",
+      "by": "Frank Ocean",
+      "cover": "/playlist-covers/channel-orange.png",
+      "link": "https://open.spotify.com/search/channel%20orange%20frank%20ocean"
+    },
+    {
+      "title": "Continuum",
+      "by": "John Mayer",
+      "cover": "/playlist-covers/continuum.png",
+      "link": "https://open.spotify.com/search/continuum%20john%20mayer"
+    },
+    {
+      "title": "Igor",
+      "by": "Tyler, The Creator",
+      "cover": "/playlist-covers/igor.png",
+      "link": "https://open.spotify.com/search/igor%20tyler%20the%20creator"
+    },
+    {
+      "title": "Blonde",
+      "by": "Frank Ocean",
+      "cover": "/playlist-covers/blonde.png",
+      "link": "https://open.spotify.com/search/blonde%20frank%20ocean"
+    }
+  ],
+  "films": [
+    {
+      "title": "Whiplash",
+      "by": "Damien Chazelle",
+      "year": 2014,
+      "cover": "/playlist-covers/whiplash.png"
+    },
+    {
+      "title": "Spirited Away",
+      "by": "Hayao Miyazaki",
+      "year": 2001,
+      "cover": "/playlist-covers/spirited-away.png"
+    },
+    {
+      "title": "Andhadhun",
+      "by": "Sriram Raghavan",
+      "year": 2018,
+      "cover": "/playlist-covers/andhadhun.png"
+    },
+    {
+      "title": "Past Lives",
+      "by": "Celine Song",
+      "year": 2023,
+      "cover": "/playlist-covers/past-lives.png"
+    },
+    {
+      "title": "The Social Network",
+      "by": "David Fincher",
+      "year": 2010,
+      "cover": "/playlist-covers/social-network.png"
+    }
+  ],
+  "games": [
+    {
+      "title": "Hades",
+      "by": "Supergiant Games",
+      "cover": "/playlist-covers/hades.png"
+    },
+    {
+      "title": "Stardew Valley",
+      "by": "ConcernedApe",
+      "cover": "/playlist-covers/stardew-valley.png"
+    },
+    {
+      "title": "Disco Elysium",
+      "by": "ZA/UM",
+      "cover": "/playlist-covers/disco-elysium.png"
+    }
+  ]
+}

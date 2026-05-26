@@ -1,14 +1,24 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export', // Enable static export for Netlify
+  // Avoid broken vendor chunks for FA + React Fontawesome in some dev setups
+  transpilePackages: [
+    "@fortawesome/react-fontawesome",
+    "@fortawesome/fontawesome-svg-core",
+    "@fortawesome/free-solid-svg-icons",
+    "@fortawesome/free-brands-svg-icons",
+  ],
   images: {
-    unoptimized: true, // Required for static export
-    domains: [],
-    formats: ['image/avif', 'image/webp'],
-  },
-  experimental: {
-    optimizePackageImports: ['@fortawesome/fontawesome-svg-core', '@fortawesome/free-brands-svg-icons'],
+    // Covers and MDX may reference arbitrary HTTPS URLs; keep simple until domains are fixed.
+    unoptimized: true,
+    remotePatterns: [
+      { protocol: "https", hostname: "*.supabase.co", pathname: "/**" },
+      { protocol: "https", hostname: "avatars.githubusercontent.com", pathname: "/**" },
+      { protocol: "https", hostname: "picsum.photos", pathname: "/**" },
+      { protocol: "https", hostname: "fastly.picsum.photos", pathname: "/**" },
+      { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
+    ],
+    formats: ["image/avif", "image/webp"],
   },
 }
 

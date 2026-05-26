@@ -1,0 +1,17 @@
+# Netlify configuration — Next.js 14 full-stack portfolio.
+#
+# SSR, middleware, API routes and server actions are handled by Netlify's
+# Next.js Runtime, which is auto-detected for Next 13.5+. We do NOT set a
+# `publish` dir or output mode — the runtime manages that. Pin Node and let
+# the scheduled function (netlify/functions/) replace the old Vercel cron.
+
+[build]
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Next.js Runtime is applied automatically; pinned explicitly for a first-time
+# migration so the build is deterministic and debuggable.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

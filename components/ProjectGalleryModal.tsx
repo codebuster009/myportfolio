@@ -7,7 +7,7 @@ import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTimes, faChevronLeft, faChevronRight, faVideo, faSpinner } from "@fortawesome/free-solid-svg-icons"
+import { faTimes, faChevronLeft, faChevronRight, faVideo, faSpinner, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons"
 import { cn } from "@/lib/utils"
 
 interface ProjectGalleryModalProps {
@@ -17,6 +17,7 @@ interface ProjectGalleryModalProps {
     title: string
     tech: string[]
     folderName: string
+    live?: string
   }
 }
 
@@ -229,7 +230,7 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
             }}
             onEscapeKeyDown={onClose}
           >
-            {/* Frosted glass background overlay */}
+            {/* Dimmed backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -274,15 +275,32 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
                     )}
                   </div>
                 </div>
-                <Button
-                  onClick={onClose}
-                  variant="ghost"
-                  size="icon"
-                  className="flex-shrink-0 sm:ml-4 glass-hover w-8 h-8 sm:w-10 sm:h-10"
-                  aria-label="Close modal"
-                >
-                  <FontAwesomeIcon icon={faTimes} className="text-base sm:text-lg md:text-xl" />
-                </Button>
+                <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0 sm:ml-4">
+                  {project.live && project.live.startsWith("http") ? (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-indigo-600 px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-primary/30 hover:opacity-90 transition-opacity whitespace-nowrap"
+                    >
+                      <span className="relative flex h-2 w-2">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-300 opacity-75" />
+                        <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                      </span>
+                      Visit live site
+                      <FontAwesomeIcon icon={faExternalLinkAlt} className="text-[10px] sm:text-xs" />
+                    </a>
+                  ) : null}
+                  <Button
+                    onClick={onClose}
+                    variant="ghost"
+                    size="icon"
+                    className="glass-hover w-8 h-8 sm:w-10 sm:h-10"
+                    aria-label="Close modal"
+                  >
+                    <FontAwesomeIcon icon={faTimes} className="text-base sm:text-lg md:text-xl" />
+                  </Button>
+                </div>
               </motion.div>
 
               {/* Main media area */}
@@ -315,11 +333,10 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
                               setVideoLoading(false)
                             }}
                             className="w-full h-full object-contain rounded-lg"
-                            style={{ 
-                              filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.3))',
-                              boxShadow: '0 0 40px rgba(126, 116, 241, 0.15)',
+                            style={{
+                              filter: "drop-shadow(0 12px 24px rgba(0,0,0,0.2))",
                               opacity: videoLoading ? 0.5 : 1,
-                              transition: 'opacity 0.3s ease'
+                              transition: "opacity 0.3s ease",
                             }}
                           />
                           {/* Loading Message Overlay */}
@@ -365,9 +382,8 @@ export default function ProjectGalleryModal({ isOpen, onClose, project }: Projec
                       ) : (
                         <motion.div
                           className="relative w-full h-full rounded-lg overflow-hidden"
-                          style={{ 
-                            filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.3))',
-                            boxShadow: '0 0 40px rgba(126, 116, 241, 0.15)'
+                          style={{
+                            filter: "drop-shadow(0 12px 24px rgba(0,0,0,0.2))",
                           }}
                         >
                           <Image

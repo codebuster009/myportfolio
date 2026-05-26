@@ -60,8 +60,10 @@ export default function WorkflowSection() {
   ]
 
   return (
-    <section id="workflow" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Background decorative elements */}
+    <section
+      id="how-i-work"
+      className="scroll-mt-24 py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+    >
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           animate={{
@@ -73,7 +75,7 @@ export default function WorkflowSection() {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/15 rounded-full blur-3xl"
         />
       </div>
 
@@ -93,7 +95,7 @@ export default function WorkflowSection() {
             transition={{ delay: 0.2 }}
             className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gradient"
           >
-            General Project Workflow
+            How I work
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -109,7 +111,7 @@ export default function WorkflowSection() {
         {/* Timeline */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-secondary to-accent -translate-x-1/2" />
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-purple-500 to-indigo-600 -translate-x-1/2" />
 
           {/* Phases */}
           <div className="space-y-6 md:space-y-8 lg:space-y-12">
@@ -125,7 +127,7 @@ export default function WorkflowSection() {
                 }`}
               >
                 {/* Timeline Dot */}
-                <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-br from-primary to-secondary border-4 border-background shadow-glass-hover z-10" />
+                <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-gradient-to-br from-primary to-indigo-600 border-4 border-background shadow-glass-hover z-10" />
 
                 {/* Content Card */}
                 <div className={`flex-1 w-full ${index % 2 === 0 ? "lg:pr-8" : "lg:pl-8"}`}>
@@ -182,7 +184,7 @@ export default function WorkflowSection() {
                 Flexible Development Approach
               </h3>
               <p className="text-foreground/80 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto px-4">
-                Each project is customized based on your requirements — whether you need a basic static site or a full-stack platform with complex features. If you already have assets (like UI designs or backend APIs), I adapt the process accordingly.
+                Each project is customized based on your requirements, whether you need a basic static site or a full-stack platform with complex features. If you already have assets (like UI designs or backend APIs), I adapt the process accordingly.
               </p>
             </CardContent>
           </Card>

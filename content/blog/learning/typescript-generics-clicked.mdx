@@ -1,0 +1,51 @@
+---
+title: "When TypeScript generics finally clicked"
+date: "2026-01-22"
+excerpt: "Two years of pretending to understand them. One afternoon of actually using them."
+cover: "https://picsum.photos/seed/typescript-keyboard/1200/675"
+tags:
+  - typescript
+  - learning
+---
+
+I shipped TypeScript for two years before I genuinely understood generics. I wrote them. Copy-pasted them off Stack Overflow. Typed a question mark next to the angle bracket and let the compiler tell me what was missing. I wouldn't have called it understanding.
+
+What finally clicked was building a typed fetch wrapper. Not because the project mattered, but because the abstraction was simple enough that I couldn't hide from what the generics were doing.
+
+The trick I wish someone had handed me earlier:
+
+A generic in a function signature isn't a placeholder for "any". It's a placeholder for "whatever specific thing the caller passes in." The function doesn't know what it'll be, but the caller does. The generic is the rope that carries that type from one side to the other.
+
+Compare:
+
+```ts
+function unwrap(arg: any): any { ... }
+
+function unwrap<T>(arg: T[]): T { ... }
+```
+
+The first strips all type information. Hand it an `Article[]`, get back `any`. The second preserves the relationship. Hand it `Article[]`, get back `Article`. The generic is the rope tying input type to output type. Cut it, you're guessing.
+
+Once that landed, everything else got simpler.
+
+A generic constraint (`<T extends User>`) is saying "this has to be at least a User, but the caller can pass something more specific." A conditional type (`T extends string ? A : B`) is an if-statement at the type level. A mapped type (`{ [K in keyof T]: ... }`) is an object loop at the type level. Same idea, different surfaces.
+
+The hardest part was unlearning the urge to type `any` when things got hairy. Every `any` is a place where the rope is cut. The whole project of using TypeScript well is keeping the rope intact end to end, so that when you change one thing in one file, the compiler can tell you every other place it broke.
+
+A small example from a real project. We had a function that returned different things based on the role:
+
+```ts
+function getDashboardConfig(role: "admin" | "user"): AdminConfig | UserConfig
+```
+
+This worked, but every caller had to narrow the result with an if to figure out which one it got. Better version:
+
+```ts
+function getDashboardConfig<R extends "admin" | "user">(
+  role: R
+): R extends "admin" ? AdminConfig : UserConfig
+```
+
+Now `getDashboardConfig("admin")` returns `AdminConfig` directly. No narrowing. The information the caller has (which role they passed) flows through the type system to the return type. Rope stays intact.
+
+I'm still not a TypeScript wizard. Still google patterns I've seen ten times. But I don't feel like I'm writing magic incantations anymore. Generics, once they click, are one of the most powerful tools the language has, and most of us spend our first few years scared of them. If you're in that phase: build something tiny that forces you to use them. Understanding comes from doing, not reading.

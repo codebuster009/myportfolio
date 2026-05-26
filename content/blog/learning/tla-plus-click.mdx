@@ -1,0 +1,56 @@
+---
+title: "What I got wrong on my first RAG pipeline"
+date: "2026-03-08"
+excerpt: "Three mistakes I made in the first two weeks. The third one was expensive."
+cover: "/freighkit.ai-project/chatbot-integration.png"
+tags:
+  - rag
+  - llm
+  - learning
+---
+
+Shipped my first retrieval-augmented generation pipeline last year for a freight platform that needed to answer questions over a thousand-ish internal docs. The brief was simple. The execution was less simple. Three mistakes I made early enough that they shaped how I do this kind of work now.
+
+### Mistake one: trusting cosine similarity
+
+The default tutorial path is: embed your docs, dump them in a vector DB, embed the user query, find top-k by cosine similarity, stuff into the prompt. That's exactly what I did.
+
+Results were okay. Sometimes great, often subtly wrong. The model would confidently cite a passage about Mumbai routes when the user asked about Chennai routes, because the surrounding language was similar and Chennai was barely mentioned anywhere.
+
+Fix was hybrid search. Cosine similarity plus BM25 (a classic keyword-based ranking), then a small reranker on top. Going from pure-vector to hybrid took retrieval accuracy from ~70% to ~90% on our internal eval set. Same model. Same prompts. Just better stuff going in.
+
+Lesson: the model is only as good as what you feed it. If you can't retrieve the right chunks, no amount of prompt cleverness fixes that.
+
+### Mistake two: chunking by character count
+
+I chunked the docs into 500-character chunks with 100-char overlap. That's the default in every tutorial. It's also a terrible default.
+
+You end up cutting paragraphs mid-sentence. Tables get sliced randomly. Bulleted lists lose their context. A retrieved chunk might say "the rate increases by 15%" with no indication of what's increasing or under what condition.
+
+Fix: semantic chunking. Use the document's own structure. Headings, paragraphs, list items, table rows. If a section is longer than your token budget, split at the sentence level, not the character level. Tables: treat each row plus its header as a unit. Code blocks: don't split them at all.
+
+Took a weekend to implement. Single biggest quality jump in the project.
+
+### Mistake three: not building evals from day one
+
+This is the expensive one.
+
+I spent six weeks improving the system on vibes. "Output feels better today." "That answer's sharper." "I think we're in a good place." Then we did a real test with the client team and discovered that two-thirds of our "improvements" had also introduced regressions on questions that used to work fine.
+
+I built an eval set in week eight that should have existed in week one. Twenty real questions from real users. Hand-graded answers. A script that ran the pipeline against all twenty after every change and showed me which ones got better, which got worse.
+
+The eval set turned guess-work into engineering. Try a change, see the score, keep it or revert it. Whole project moved twice as fast after that.
+
+### The pattern
+
+All three mistakes have the same shape: trusting defaults instead of measuring. Cosine similarity is a default. Character chunking is a default. Vibes are a default form of evaluation. None are bad starting points. None survive contact with real users without measurement.
+
+If you're about to ship your first RAG system, do this on day one:
+
+1. Build a small eval set of 10-20 real questions, with hand-graded answers.
+2. Set up a script that runs the eval and reports a score.
+3. Then iterate on retrieval, chunking, prompts, whatever.
+
+The eval is the part nobody puts in the YouTube tutorials. It's also the part that makes everything else possible.
+
+*Building something like this and want a second pair of hands? This is the exact kind of work I do for SaaS teams. [Send me a message.](/services#say-hi)*

@@ -4,90 +4,135 @@ import { motion } from "framer-motion"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { 
-  faLaptopCode, 
-  faMobileAlt, 
-  faShoppingCart, 
-  faChartLine,
-  faUsers,
-  faLock,
+import {
+  faRobot,
+  faMagnifyingGlass,
   faBolt,
-  faGlobe
+  faChartLine,
+  faLock,
+  faLaptopCode,
+  faChartSimple,
+  faStethoscope,
+  faRepeat,
+  faFileLines,
 } from "@fortawesome/free-solid-svg-icons"
 
 export default function ServicesSection() {
   const services = [
     {
-      icon: faLaptopCode,
-      title: "Custom Website Development",
-      description: "Scalable, modern websites tailored to your business goals",
+      icon: faRobot,
+      title: "AI Chatbot & Assistant Integration",
+      description: "Streaming, tool-using AI assistants bolted onto your existing app.",
       features: [
-        "Frontend: ReactJS, TypeScript, Redux, TailwindCSS, Bootstrap, Framer Motion",
-        "Backend: Node.js, Express, REST APIs",
-        "Real-time updates via WebSockets & Server-Sent Events",
-        "Full-Stack Integration"
-      ]
+        "Conversational UX with streaming responses",
+        "Function-calling for real actions (not just chat)",
+        "Memory and context handling across sessions",
+        "OpenAI, Anthropic, or open-source models",
+      ],
+    },
+    {
+      icon: faMagnifyingGlass,
+      title: "RAG Pipelines",
+      description: "Search over your docs, contracts, support tickets, anything.",
+      features: [
+        "Hybrid retrieval (vector + keyword + rerank)",
+        "Semantic chunking that respects your data structure",
+        "Citation UI so users can verify answers",
+        "Evals built in from day one",
+      ],
     },
     {
       icon: faBolt,
-      title: "Real-Time Interactions",
-      description: "Live features that keep users engaged",
+      title: "AI Feature Retrofits",
+      description: "Adding AI to an existing React or Node app without breaking what works.",
       features: [
-        "Live chat systems",
-        "Real-time notifications",
-        "Instant updates",
-        "WebSockets, SSE, and Redis caching"
-      ]
-    },
-    {
-      icon: faShoppingCart,
-      title: "E-Commerce Ready",
-      description: "Complete online store solutions",
-      features: [
-        "Product listings & management",
-        "Dynamic shopping carts",
-        "Secure payment integrations",
-        "Conversion-optimized user flows"
-      ]
+        "Smart autocomplete and inline suggestions",
+        "Document Q&A modules",
+        "AI-powered onboarding flows",
+        "Pay-per-use cost gating for paid tiers",
+      ],
     },
     {
       icon: faChartLine,
-      title: "Admin & User Dashboards",
-      description: "Powerful data management interfaces",
+      title: "AI Dashboards & Analytics",
+      description: "Internal tools where LLMs do the boring summarization for your team.",
       features: [
-        "User-friendly dashboards",
-        "Data management tools",
-        "Analytics & reporting",
-        "Role-based access"
-      ]
-    },
-    {
-      icon: faGlobe,
-      title: "Performance Optimization",
-      description: "Fast, accessible, and SEO-friendly",
-      features: [
-        "SEO best practices",
-        "Accessibility compliance",
-        "Lazy loading & code splitting",
-        "Performance monitoring"
-      ]
+        "Natural-language data queries",
+        "Auto-generated weekly summaries",
+        "Anomaly detection with plain-English explanations",
+        "Role-based access for sensitive data",
+      ],
     },
     {
       icon: faLock,
-      title: "Security & Authentication",
-      description: "Enterprise-grade security",
+      title: "Auth, Permissions & Secure APIs",
+      description: "When you need real enterprise plumbing under the AI features.",
       features: [
-        "OAuth 2.0 integration",
-        "Secure API endpoints",
+        "OAuth 2.0 and SSO integration",
         "Role-based access control",
-        "Data encryption"
-      ]
-    }
+        "Audit logging for AI actions",
+        "API key management and rate limiting",
+      ],
+    },
+    {
+      icon: faLaptopCode,
+      title: "Full-Stack React + Node Work",
+      description: "Not every project needs AI. I still build regular SaaS too.",
+      features: [
+        "Next.js / React / TypeScript frontends",
+        "Node.js, Express, REST and GraphQL APIs",
+        "Real-time features via WebSockets and SSE",
+        "Postgres, MongoDB, Redis as the data layer",
+      ],
+    },
+    {
+      icon: faStethoscope,
+      title: "Website Audits",
+      description: "A 1-week deep-dive that tells you what's actually slowing you down.",
+      features: [
+        "Performance audit (Lighthouse, real-user metrics)",
+        "SEO audit with prioritized fix list",
+        "Security and accessibility review",
+        "Codebase health check, one written report",
+      ],
+    },
+    {
+      icon: faChartSimple,
+      title: "SEO Audit + Technical SEO",
+      description: "I look at your site, find what's tanking it, and either fix it or hand you a prioritized list.",
+      features: [
+        "Full audit: Core Web Vitals, indexing, schema, content gaps",
+        "Written report with fixes ranked by impact and effort",
+        "Implementation if you want me to ship the fixes too",
+        "Monthly retainer option for ongoing SEO + content work",
+      ],
+    },
+    {
+      icon: faFileLines,
+      title: "Portfolio + Resume Builds",
+      description: "For job-seekers, freshers, and career-switchers who want something that doesn't look like a template.",
+      features: [
+        "Custom-coded portfolio site (not Wix, not a template)",
+        "ATS-friendly resume rewrite with AI-assisted tuning",
+        "LinkedIn headline and About rewrite",
+        "Combo packages at student-friendly rates",
+      ],
+    },
+    {
+      icon: faRepeat,
+      title: "Monthly Retainers",
+      description: "Ongoing engineering and AI work, predictable cost, no scope ping-pong.",
+      features: [
+        "Set monthly hours, rolling 30-day commit",
+        "Async-first via Slack and Linear",
+        "Weekly Friday demo of what shipped",
+        "Pause or cancel any month, no penalty",
+      ],
+    },
   ]
 
   return (
     <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           animate={{
@@ -99,7 +144,7 @@ export default function ServicesSection() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"
+          className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/30 rounded-full blur-3xl"
         />
       </div>
 
@@ -119,7 +164,7 @@ export default function ServicesSection() {
             transition={{ delay: 0.2 }}
             className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gradient"
           >
-            Custom Website Development Services
+            What I help SaaS teams ship
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -128,7 +173,7 @@ export default function ServicesSection() {
             transition={{ delay: 0.3 }}
             className="text-foreground/80 text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4"
           >
-            Scalable, Modern & Results-Driven. Whether it&apos;s a simple static site or a full-scale custom web application, I create seamless, user-friendly digital experiences designed to drive engagement, performance, and long-term growth.
+            I add AI features to React and Node apps that already work. Chatbots, RAG, smart search, intelligent dashboards. The kind of thing on your roadmap labelled &quot;Q3 AI exploration&quot; that nobody on the team has actually shipped before.
           </motion.p>
         </motion.div>
 
@@ -148,7 +193,7 @@ export default function ServicesSection() {
                     whileHover={{ scale: 1.15, rotate: 10 }}
                     className="mb-4 inline-block"
                   >
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-primary via-secondary to-accent flex items-center justify-center shadow-glass-hover">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-gradient-to-br from-primary via-purple-500 to-indigo-600 flex items-center justify-center shadow-glass-hover">
                       <FontAwesomeIcon
                         icon={service.icon}
                         className="text-white text-lg sm:text-xl md:text-2xl"
@@ -195,10 +240,12 @@ export default function ServicesSection() {
           <Card className="glass border-2 border-primary/20">
             <CardContent className="p-6 md:p-8 text-center">
               <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gradient">
-                Need Just a Static Website?
+                How I usually work
               </h3>
               <p className="text-foreground/80 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-                If you&apos;re looking for a simple, content-driven website (e.g., landing pages, portfolios, marketing pages), I offer lighter packages at lower rates — no backend or dynamic functionality required.
+                Free 30-minute discovery call. Scoped proposal after, with a fixed price or hourly cap. No hidden time, no scope ping-pong.
+                You see a working demo every Friday. Slack and Loom by default, calls only when they earn their keep.
+                If you want a full breakdown of a recent project, read the <a href="/case-studies/marketing-ai" className="text-primary underline hover:no-underline">Marketing AI case study</a>.
               </p>
             </CardContent>
           </Card>
